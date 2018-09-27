@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Requests\ReviewLinks;
+use App\Http\Requests\BaseRequest;
+
+class ReviewLinkIndex extends BaseRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'per_page' => 'nullable|integer',
+            'sort_by' => 'nullable|string',
+            'sort_type' => 'nullable|in:asc,desc'
+        ];
+    }
+}
